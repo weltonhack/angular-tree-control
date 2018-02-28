@@ -331,6 +331,9 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
                 compile: function(element, attrs, childTranscludeFn) {
                     return function ( scope, element, attrs, treemodelCntr ) {
 
+                        //add treecontrol class to root element
+                        element.addClass('treecontrol');
+                        
                         scope.$watch("treeModel", function updateNodeOnRootScope(newValue) {
                             if (angular.isArray(newValue)) {
                                 if (angular.isDefined(scope.node) && angular.equals(scope.node[scope.options.nodeChildren], newValue))
